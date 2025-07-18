@@ -27,17 +27,17 @@ const debounce = (
 export const Navbar: React.FC = () => {
   const inputElem = useRef<HTMLInputElement>(null);
   const [filterData, setFilterData] = useState([]);
-  const [loading, setIsLoading] = useState(false);
+  // const [loading, setIsLoading] = useState(false);
 
   const fetchNameResults = async (text: string) => {
     try {
       if (text !== "") {
-        setIsLoading(true);
+        // setIsLoading(true);
         const { data } = await axiosInstance.get(
           `/post/Searchfilter/postUser?query=${text}`
         );
         setFilterData(data);
-        setIsLoading(false);
+        // setIsLoading(false);
       }
     } catch (e) {
       console.error(e);
