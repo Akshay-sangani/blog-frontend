@@ -1,18 +1,18 @@
-import { Link, useNavigate } from "react-router";
-import { memo, useEffect, useState } from "react";
+import { Link } from "react-router";
+import { memo, useState } from "react";
 import { Popup } from "./Popup";
 import { useDeletePost } from "../api/post/postApi";
 import { toast } from "react-toastify";
 import { useQueryClient } from "@tanstack/react-query";
 import { formatTweetTime } from "../utils/timeFormater";
 import type { PostInterface } from "../utils/inrterface/postInterface";
-import { logout } from "../redux";
+
 
 
 
 function PostCardCompo({ posts, isOwner = false } : {posts :  PostInterface[], isOwner : boolean}) {
   const notifyError = () => toast.error("Something Went Wrong!!!");
-  const notifyErr = () => toast.error("Login Please");
+
   const notifySucess = () => toast.success("Post Deleted!!!");
   const [show, setShow] = useState(false);
   const [postdata, setPostData] = useState(undefined);
