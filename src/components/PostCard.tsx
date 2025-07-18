@@ -7,7 +7,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { formatTweetTime } from "../utils/timeFormater";
 import type { PostInterface } from "../utils/inrterface/postInterface";
 import { logout } from "../redux";
-import { useDispatch } from "react-redux";
+
 
 
 function PostCardCompo({ posts, isOwner = false } : {posts :  PostInterface[], isOwner : boolean}) {
@@ -16,15 +16,8 @@ function PostCardCompo({ posts, isOwner = false } : {posts :  PostInterface[], i
   const notifySucess = () => toast.success("Post Deleted!!!");
   const [show, setShow] = useState(false);
   const [postdata, setPostData] = useState(undefined);
-  const dispatch = useDispatch()
+
   const qc = useQueryClient();
-      const navigate = useNavigate()
-useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      dispatch(logout())
-      navigate("/login");
-      notifyErr();
-    }},[])
 
   const data = posts;
   const deletePost = useDeletePost();
